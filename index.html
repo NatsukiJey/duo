@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Flame | Ingliz tilini bepul o'rganing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">🔥 English Flame</div>
+
+        <div class="nav-stats">
+            <div class="stat">⚡ <span id="xp">0</span> XP</div>
+            <div class="stat">❤️ <span id="lives">5</span></div>
+            <div class="stat">🔥 <span id="streak">0</span></div>
+        </div>
+    </header>
+
+    <!-- HOME PAGE -->
+    <main id="homePage" class="page">
+        <section class="hero">
+            <div class="hero-content">
+                <span class="tag">100% BEPUL TA'LIM</span>
+                <h1>Ingliz tilini <span>o'yin orqali</span> o'rganing!</h1>
+
+                <p>
+                    Har kuni yangi so'zlar, qiziqarli savollar,
+                    XP va olovchalar orqali ingliz tilingizni rivojlantiring.
+                </p>
+
+                <button class="primary-btn" onclick="showDashboard()">
+                    O'rganishni boshlash →
+                </button>
+            </div>
+
+            <div class="hero-image">🔥</div>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <div>⚡</div>
+                <h3>XP yig'ing</h3>
+                <p>To'g'ri javoblar uchun tajriba ballari oling.</p>
+            </div>
+
+            <div class="feature-card">
+                <div>🔥</div>
+                <h3>Olovchani saqlang</h3>
+                <p>Har kuni kamida bitta dars bajaring.</p>
+            </div>
+
+            <div class="feature-card">
+                <div>❤️</div>
+                <h3>Hayotlaringiz</h3>
+                <p>5 ta hayotdan foydalaning va xatolaringizni kamaytiring.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- DASHBOARD -->
+    <main id="dashboard" class="page hidden">
+
+        <section class="welcome">
+            <h1>O'rganishni davom ettiramiz! 🚀</h1>
+            <p>Har kuni ozgina mashq — katta natija!</p>
+        </section>
+
+        <section class="dashboard-stats">
+            <div class="dashboard-card">
+                <span>⚡</span>
+                <h2 id="xpDashboard">0</h2>
+                <p>Jami XP</p>
+            </div>
+
+            <div class="dashboard-card">
+                <span>❤️</span>
+                <h2 id="dashboardLives">5</h2>
+                <p>Hayotlar</p>
+            </div>
+
+            <div class="dashboard-card">
+                <span>🔥</span>
+                <h2 id="streakDashboard">0</h2>
+                <p>Kunlik olovcha</p>
+            </div>
+        </section>
+
+        <section class="course-section">
+            <div class="section-heading">
+                <div>
+                    <h2>📚 Ingliz tili kursi</h2>
+                    <p>Beginner — Boshlang'ich daraja</p>
+                </div>
+
+                <div class="course-progress">
+                    <span id="progressText">0 / 5 dars</span>
+                    <div class="progress-bar">
+                        <div id="courseProgress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-list">
+
+                <div class="lesson-item">
+                    <div class="lesson-number">1</div>
+                    <div class="lesson-info">
+                        <h3>Basic English Words</h3>
+                        <p>Oddiy inglizcha so'zlar</p>
+                    </div>
+                    <button onclick="startLesson(1)">Boshlash</button>
+                </div>
+
+                <div class="lesson-item">
+                    <div class="lesson-number">2</div>
+                    <div class="lesson-info">
+                        <h3>Greetings</h3>
+                        <p>Salomlashish</p>
+                    </div>
+                    <span>🔒</span>
+                </div>
+
+                <div class="lesson-item">
+                    <div class="lesson-number">3</div>
+                    <div class="lesson-info">
+                        <h3>Numbers</h3>
+                        <p>Sonlar</p>
+                    </div>
+                    <span>🔒</span>
+                </div>
+
+                <div class="lesson-item">
+                    <div class="lesson-number">4</div>
+                    <div class="lesson-info">
+                        <h3>Pronouns</h3>
+                        <p>Olmoshlar</p>
+                    </div>
+                    <span>🔒</span>
+                </div>
+
+                <div class="lesson-item">
+                    <div class="lesson-number">5</div>
+                    <div class="lesson-info">
+                        <h3>Simple Sentences</h3>
+                        <p>Oddiy gaplar</p>
+                    </div>
+                    <span>🔒</span>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- LESSON PAGE -->
+    <main id="lessonPage" class="page hidden">
+
+        <section class="lesson-container">
+
+            <div class="lesson-top">
+                <button class="back-btn" onclick="exitLesson()">✕</button>
+
+                <div class="lesson-progress-bar">
+                    <div id="lessonProgress"></div>
+                </div>
+
+                <div class="lesson-life">❤️ <span id="lessonLives">5</span></div>
+            </div>
+
+            <div class="question-area">
+                <span class="tag">ENGLISH FLAME</span>
+
+                <h1 id="question">Savol yuklanmoqda...</h1>
+                <p id="questionHint">To'g'ri javobni tanlang.</p>
+
+                <div id="answers" class="answers"></div>
+
+                <div id="feedback" class="feedback"></div>
+            </div>
+
+            <div class="lesson-bottom">
+                <button id="checkButton" class="primary-btn" onclick="nextQuestion()" disabled>
+                    Tekshirish
+                </button>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- RESULT PAGE -->
+    <main id="resultPage" class="page hidden">
+
+        <section class="result-container">
+            <div class="result-icon">🏆</div>
+
+            <h1>Dars yakunlandi!</h1>
+            <p id="resultMessage">Ajoyib natija!</p>
+
+            <div class="result-stats">
+                <div>
+                    <h2 id="earnedXP">0</h2>
+                    <p>⚡ Yig'ilgan XP</p>
+                </div>
+
+                <div>
+                    <h2 id="correctAnswers">0</h2>
+                    <p>✅ To'g'ri javoblar</p>
+                </div>
+
+                <div>
+                    <h2 id="wrongAnswers">0</h2>
+                    <p>❌ Xatolar</p>
+                </div>
+            </div>
+
+            <button class="primary-btn" onclick="showDashboard()">
+                Davom etish →
+            </button>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>🔥 English Flame © 2026 | Ingliz tilini bepul o'rganing</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
